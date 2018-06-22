@@ -49,3 +49,25 @@ func TestInvalidUserRegistration(t *testing.T) {
 
 	restoreLists()
 }
+
+func TestUserValidity(t *testing.T) {
+	if !isUserValid("user1", "pass1") {
+		t.Fail()
+	}
+
+	if isUserValid("user2", "pass1") {
+		t.Fail()
+	}
+
+	if isUserValid("user1", "") {
+		t.Fail()
+	}
+
+	if isUserValid("", "pass1") {
+		t.Fail()
+	}
+
+	if isUserValid("User1", "pass1") {
+		t.Fail()
+	}
+}

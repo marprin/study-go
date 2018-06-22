@@ -1,0 +1,27 @@
+{{ template "header.html" .}}
+
+<h1>Create Article</h1>
+
+<div class="panel panel-default col-sm-12">
+	<div class="panel-body">
+		{{ if .ErrorTitle }}
+			<p class="bg-danger">
+				{{ .ErrorTitle }}: {{.ErrorMessage}}
+			</p>
+		{{end}}
+
+		<form class="form" action="/article/create" method="POST">
+			<div class="form-group">
+				<label for="title">Title</label>
+				<input type="text" class="form-control" id="title" name="title" placeholder="Title" />
+			</div>
+			<div class="form-group">
+				<label for="content">Content</label>
+				<textarea class="form-control" name="content" rows="10" id="content" placeholder="Article Content"></textarea>
+			</div>
+			<button class="btn btn-primary" type="submit">Submit</button>
+		</form>
+	</div>
+</div>
+
+{{ template "footer.html" .}}
